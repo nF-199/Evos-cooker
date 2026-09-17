@@ -1,2 +1,119 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@theme {
+  --font-sans: "Inter Variable", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", ui-monospace, monospace;
+}
+
+/* Issiq, ochiq palitra — qora va ko'k yo'q.
+   DaisyUI bustilgan "light" mavzusini to'liq qayta bo'yaydi. */
+:root {
+  color-scheme: light;
+
+  --color-base-100: oklch(0.992 0.006 75);
+  --color-base-200: oklch(0.954 0.011 75);
+  --color-base-300: oklch(0.922 0.016 72);
+  --color-base-content: oklch(0.4 0.04 48);
+
+  --color-primary: oklch(0.63 0.19 38);
+  --color-primary-content: oklch(0.99 0.006 75);
+
+  --color-secondary: oklch(0.55 0.21 24);
+  --color-secondary-content: oklch(0.99 0.006 75);
+
+  --color-accent: oklch(0.78 0.16 85);
+  --color-accent-content: oklch(0.32 0.04 45);
+
+  --color-neutral: oklch(0.954 0.011 75);
+  --color-neutral-content: oklch(0.4 0.04 48);
+
+  --color-info: oklch(0.57 0.16 286);
+  --color-info-content: oklch(0.985 0.005 75);
+
+  --color-success: oklch(0.63 0.15 152);
+  --color-success-content: oklch(0.985 0.005 75);
+
+  --color-warning: oklch(0.78 0.17 82);
+  --color-warning-content: oklch(0.32 0.04 45);
+
+  --color-error: oklch(0.6 0.21 24);
+  --color-error-content: oklch(0.985 0.005 75);
+
+  --radius-selector: 1rem;
+  --radius-field: 0.8rem;
+  --radius-box: 1.25rem;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: oklch(0.63 0.19 38);
+  color: oklch(0.99 0.006 75);
+}
+
+/* Yupqa silliq scrollbar */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.85 0.02 70) transparent;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: oklch(0.878 0.02 70);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.79 0.03 65);
+  background-clip: content-box;
+  border: 3px solid transparent;
+}
+
+/* Yumshoq tekshiratkich */
+@keyframes evos-breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.72 0.16 152 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px oklch(0.72 0.16 152 / 0);
+  }
+}
+.live-dot {
+  animation: evos-breathe 1.8s ease-out infinite;
+}
+
+/* Grid naqsh (shaffof) */
+.dot-grid {
+  background-image: radial-gradient(oklch(0.4 0.04 48 / 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.dot-grid-light {
+  background-image: radial-gradient(oklch(1 0 0 / 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Kartochka hover ta'siri */
+.card-lift {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+}
